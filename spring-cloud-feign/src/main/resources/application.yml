@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: sc-feign
+server:
+  port: 9001
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+
+ribbon:
+  ReadTimeout: 4000   # 客户端调用超时时间，单位毫秒
+  OkToRetryOnAllOperations: true  # 客户端请求失败都进行重试
+  MaxAutoRetries: 1   # 重试次数
+  MaxAutoRetriesNextServer: 2   # 重试时尝试更换实例的次数
+
+feign:
+  hystrix:
+    enabled: true    # 在 Feign 中启用 Hystrix
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 2000

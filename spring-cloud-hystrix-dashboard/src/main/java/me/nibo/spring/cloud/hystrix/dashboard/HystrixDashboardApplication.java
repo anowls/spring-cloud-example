@@ -1,0 +1,18 @@
+package me.nibo.spring.cloud.hystrix.dashboard;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
+
+/**
+ * 程序入口
+ *
+ * @author NiBo
+ */
+@EnableHystrixDashboard
+@SpringCloudApplication
+public class HystrixDashboardApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(HystrixDashboardApplication.class, args);
+    }
+}

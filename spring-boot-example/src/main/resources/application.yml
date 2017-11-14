@@ -1,0 +1,64 @@
+# 默认配置
+server:
+  context-path: '/demo'
+
+param: hello
+
+mykey: abc123456
+
+info:
+  app:
+    name: spring-boot-sample
+    version: v1.0.0-SNAPSHOT
+
+# 跳过 actuator 组件需要认证才能访问相关监控接口数据，默认为：true
+management:
+  security:
+    enabled: false
+# 启用 actuator 的操作控制类，用来远程关闭服务，默认为：false
+endpoints:
+  shutdown:
+    enabled: true
+
+---
+
+# 定义开发环境
+spring:
+  profiles: development
+
+server:
+  context-path: '/demodev'
+param: development
+
+management:
+  security:
+    enabled: false
+
+---
+
+# 定义测试环境
+spring:
+  profiles: test
+server:
+  context-path: '/demotest'
+param: test
+
+management:
+  security:
+    enabled: false
+
+---
+
+#定义产品环境
+spring:
+  profiles: product
+
+server:
+  context-path: '/demoprod'
+param: product
+
+management:
+  security:
+    enabled: true
+
+

@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: spring-boot-logging
+
+info:
+  app:
+    name: ${spring.application.name}

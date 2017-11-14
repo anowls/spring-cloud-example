@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    # MySQL
+    url: jdbc:mysql://localhost:3306/db_test?useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    # Oracle
+#    url: jdbc:oracle:thin:@localhost:1521:xe
+#    username: db_test
+#    password: 123456
+#    driver-class-name: oracle.jdbc.OracleDriver
+
+#    druid:
+#      first:
+#        url: jdbc:mysql://localhost:3306/db_test?useSSL=false
+#        username: root
+#        password: 123456
+#        driver-class-name: com.mysql.jdbc.Driver
+#      second:
+#        url: jdbc:oracle:thin:@localhost:1521:xe
+#        username: db_test
+#        password: 123456
+#        driver-class-name: oracle.jdbc.OracleDriver
+
+mybatis:
+  mapper-locations: classpath*:mapper/*Mapper.xml
+
+logging:
+  level:
+    me:
+      nibo:
+        spring:
+          boot:
+            mybatis: debug
